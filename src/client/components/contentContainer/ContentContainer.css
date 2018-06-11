@@ -1,0 +1,348 @@
+.sourh {
+  font-family: 'KFGQPCUthmanicScriptHAFS', serif;
+  text-align: center;
+  color: #505050;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center
+}
+
+.sourh .speech-container {
+  height: 100%;
+  width: 80%;
+  margin-left: 0px;
+  margin-top: 0px;
+  padding: 0px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  border-left: solid 1px #B4B4B4;
+  border-right: solid 1px #B4B4B4
+}
+
+.div-aya {
+  position: relative
+}
+
+.sourh .speech-container .head, .sourh .speech-container h3 {
+  font-size: 40px;
+  font-weight: normal;
+  margin-bottom: 40px;
+  color: #650a0a;
+  text-align: center !important;
+  width: 100%
+}
+
+.sourh .speech-container .p-aya {
+  text-align: right;
+  font-size: 30px;
+  font-weight: normal;
+  margin: 20px 5px;
+  white-space: pre;
+}
+
+.sourh .speech-container .p-aya span:hover {
+  background-color: rgba(221, 221, 221, .4);
+  cursor: pointer
+}
+
+.sourh .speech-container .end-sourh {
+  text-align: center;
+  color: #650a0a;
+  margin: 10px 30px;
+  font-size: 28px;
+  width: 100%;
+}
+
+/* End sourh */
+
+/* -------------------- */
+
+/* Start DropDown */
+
+.dropdown, .dropdown .const .readers {
+  font-family: 'KFGQPCUthmanicScriptHAFS', serif !important;
+  background-color: #f9f9f9;
+  color: #505050;
+  width: 160px;
+  height: auto;
+  position: absolute;
+  display: none;
+  top: 45px;
+  right: 115px;
+  z-index: 99;
+  border-radius: 2px;
+  padding: 15px;
+  font-size: 15px;
+  text-align: right;
+  border: 1px solid #eee;
+  box-shadow: -4px 3px 6px 0px rgba(0, 0, 0, .1);
+}
+
+.dropdown-head {
+  top: 4em;
+  right: 25em;
+}
+
+.dropdown::before {
+  content: "";
+  content: "";
+  position: absolute;
+  top: -13px;
+  border-right: 10px solid transparent;
+  border-bottom: 20px solid #f9f9f9;
+  border-left: 10px solid transparent;
+}
+
+.dropdown .inner>div, .dropdown .const .readers>div {
+  padding: 6px;
+  border-bottom: 1px solid #e2e2e2;
+  cursor: pointer;
+  -webkit-transition: all .2s ease-in-out;
+  -moz-transition: all .2s ease-in-out;
+  -o-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+}
+
+.dropdown .inner>div:first-child {
+  padding-top: 3px;
+}
+
+.dropdown .inner>div:last-child, .dropdown .const .readers>div:last-child {
+  border-bottom: none;
+  position: sticky;
+}
+
+.dropdown .inner>div:hover, .dropdown .const .readers>div:hover {
+  padding-right: 10px;
+  background-color: #eee;
+}
+
+.dropdown .inner>div i {
+  margin-left: 5px;
+}
+
+.dropdown .const:hover .readers {
+  color: #505050;
+}
+
+.dropdown .tafsier {
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, .5);
+  width: 100%;
+  height: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  cursor: default;
+}
+
+.dropdown .tafsier i {
+  position: absolute;
+  top: 13%;
+  left: 9.3%;
+  cursor: pointer;
+  margin: 0 !important;
+}
+
+.dropdown .tafsier .tfs {
+  width: 85%;
+  height: 80%;
+  color: #151515;
+  background-color: #f9f9f9;
+  border-radius: 2px;
+  border: 1px solid #03a678;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  padding: 35px !important;
+  font-size: 19px;
+  line-height: 35px !important;
+}
+
+@media (max-width: 575.98px) {
+  .name-sourh {
+    width: 100%;
+    font-size: 15px !important;
+    font-weight: normal;
+    margin-top: 1em;
+  }
+  .name-sourh>div {
+    padding: 0 1.9em;
+  }
+  .name-sourh div:first-child, .name-sourh div:last-child {
+    font-size: 12px;
+  }
+  .sourh {
+    margin-top: 5em;
+  }
+  .sourh .speech-container {
+    width: 85%;
+  }
+  .sourh .speech-container h3 {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  .sourh .speech-container .p-aya {
+    font-size: 20px;
+  }
+  .sourh .speech-container .end-sourh {
+    font-size: 22px;
+    margin-left: 10px;
+  }
+  .dropdown, .dropdown .const .readers {
+    width: 130px;
+    height: auto;
+    top: 40px;
+    right: 60px;
+    padding: 10px;
+    font-size: 12px;
+  }
+  .dropdown .tafsier i {
+    left: 12%;
+  }
+  .dropdown .tafsier .tfs {
+    font-size: 16px;
+  }
+}
+
+.name { line-height: 40px }
+.p-end {
+    padding: 0 60px;
+    line-height: 2;
+    font-size: 23px;
+    font-weight: normal;
+  }
+
+    .bg-sour {
+      display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    }
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .name-sourh {
+    width: 95%;
+    font-size: 18px !important;
+    font-weight: normal;
+    margin-top: 1em;
+    margin-right: 1em;
+    text-align: center;
+  }
+  .name-sourh>div {
+    padding: 0 4.4em;
+  }
+  .name-sourh div:first-child, .name-sourh div:last-child {
+    font-size: 14px;
+  }
+  .sourh {
+    margin-top: 5em;
+  }
+  .sourh .speech-container {
+    width: 85%;
+  }
+  .sourh .speech-container h3 {
+    font-size: 30px;
+    margin-bottom: 25px;
+  }
+  .sourh .speech-container .p-aya {
+    font-size: 23px;
+  }
+  .sourh .speech-container .end-sourh {
+    font-size: 25px;
+    margin-left: 15px;
+  }
+  .dropdown, .dropdown .const .readers {
+    width: 140px;
+    height: auto;
+    top: 40px;
+    right: 70px;
+    padding: 12px;
+    font-size: 13px;
+  }
+  .dropdown .tafsier i {
+    left: 11%;
+  }
+  .dropdown .tafsier .tfs {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .name-sourh {
+    width: 69%;
+    font-size: 18px !important;
+    font-weight: normal;
+    text-align: center;
+  }
+  .name-sourh>div {
+    padding: 0 3.4em;
+  }
+  .name-sourh div:first-child, .name-sourh div:last-child {
+    font-size: 15px;
+  }
+  .sourh {
+    margin-top: 5em;
+  }
+  .sourh .speech-container {
+    width: 82%;
+  }
+  .sourh .speech-container h3 {
+    font-size: 35px;
+    margin-bottom: 30px;
+  }
+  .sourh .speech-container .p-aya {
+    font-size: 25px;
+  }
+  .sourh .speech-container .end-sourh {
+    font-size: 25px;
+    margin-left: 15px;
+  }
+  .dropdown, .dropdown .const .readers {
+    width: 150px;
+    height: auto;
+    top: 40px;
+    right: 70px;
+    padding: 13px;
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .name-sourh {
+    width: 69%;
+    font-size: 17px;
+    font-weight: normal;
+    text-align: center;
+  }
+  .name-sourh>div {
+    padding: 0 3.4em;
+  }
+  .name-sourh div:first-child, .name-sourh div:last-child {
+    font-size: 15px;
+  }
+  .sourh .speech-container {
+    width: 80%;
+  }
+  .sourh .speech-container h3 {
+    font-size: 40px;
+    margin-bottom: 35px;
+  }
+  .sourh .speech-container .p-aya {
+    font-size: 30px;
+  }
+  .sourh .speech-container .end-sourh {
+    font-size: 26px;
+    margin-left: 20px;
+  }
+  .dropdown, .dropdown .const .readers {
+    width: 160px;
+    height: auto;
+    top: 45px;
+    right: 90px;
+    padding: 14px;
+    font-size: 14px;
+  }
+}

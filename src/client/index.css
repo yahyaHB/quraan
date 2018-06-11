@@ -1,0 +1,8 @@
+body {
+    height: 100%;
+    width: 100%;
+    direction: rtl;
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden
+}
