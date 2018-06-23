@@ -1,5 +1,5 @@
 {
-  "name": "fac-jobs-platform",
+  "name": "quraan",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -43,6 +43,7 @@
     "passport-github2": "^0.1.11",
     "pg": "^7.4.1",
     "prop-types": "^15.6.1",
+    "rc-dialog": "^7.1.7",
     "react": "^16.2.0",
     "react-autosuggest": "^9.3.4",
     "react-awesome-popover": "^2.0.5",
@@ -59,6 +60,7 @@
     "react-popup": "^0.9.2",
     "react-redux": "^5.0.7",
     "react-responsive-carousel": "^3.1.33",
+    "react-responsive-modal": "^3.0.3",
     "react-router-dom": "^4.2.2",
     "react-skylight": "^0.5.0",
     "react-slideshow-image": "^0.1.3",

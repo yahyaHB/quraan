@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import ReactAwesomePopover from 'react-awesome-popover';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
+import Modal from 'react-responsive-modal';
+import axios from 'axios';
 
 import 'react-awesome-popover/dest/react-awesome-popover.css';
 
@@ -12,14 +14,44 @@ class ContentContainer extends Component {
   state = {
     value: '',
     copied: false,
-    opend: false
+    opentfs1: false,
+    opentfs2: false,
+    opentfs3: false
   }
 
-  toggleMenu = () => {
-    this.setState({ opend: !this.state.opend });
+  onOpenModal = () => {
+    this.setState({ opentfs1: true });
+  };
+
+  onCloseModal = () => {
+    this.setState({ opentfs1: false });
+  };
+
+  onOpenModal2 = () => {
+    this.setState({ opentfs2: true });
+  };
+
+  onCloseModal2 = () => {
+    this.setState({ opentfs2: false });
+  };
+
+  onOpenModal3 = () => {
+    this.setState({ opentfs3: true });
+  };
+
+  onCloseModal3 = () => {
+    this.setState({ opentfs3: false });
+  };
+
+  componentDidMount() {
+    axios.get('http://api.alquran.cloud/page/1/quran-uthmani')
+      .then(res => {
+        console.log(res);
+      });
   }
 
   render() {
+    const { opentfs1, opentfs2, opentfs3 } = this.state;
 
     return (
       <div>
@@ -28,76 +60,81 @@ class ContentContainer extends Component {
             <div className=''>
               <div className='bg-sour'>
                 <h3>بِسۡمِ ٱللَّهِ ٱلرَّحۡمَٰنِ ٱلرَّحِيمِ </h3>
-                <CopyToClipboard text={this.state.value}
-                  onCopy={() => this.setState({ copied: true, value: 'shit' })}>
-                  <button>Copy to clipboard with button</button>
-                </CopyToClipboard>
                 <div className='div-aya'>
-                  <p>
+                  <div>
                     <Popover>
                       <span>كَلَّآۖ إِذَا دُكَّتِ ٱلۡأَرۡضُ دَكّٗا دَكّٗا ١٢</span>
                       <div className='inner'>
-                        <div className='copy'>
-                          <i className='far fa-copy'></i>
+                        <CopyToClipboard text={this.state.value}
+                          onCopy={() => this.setState({ copied: true, value: 'shit' })}>
+                          <div className='copy'>
+                            <i className='far fa-copy'></i>
                       نسخ
-                        </div>
+                          </div>
+                        </CopyToClipboard>
                         <div className='share'>
                           <i className='fas fa-share-alt'></i>
                       مشاركة
                         </div>
                         <div className='const'>
-                          <div className='tran'>
-                            <i className='fas fa-clipboard-list'></i>
+                          <Popover>
+                            <div className='tran'>
+                              <i className='fas fa-clipboard-list'></i>
                           التفسير
-                          </div>
+                            </div>
+                            <div className='readers'>
+                              <div>
+                                <div
+                                  onClick={this.onOpenModal}
+                                  className='ibn-katheer'>
+                                ابن كثير
+                                </div>
+                                <Modal
+                                  open={opentfs1}
+                                  onClose={this.onCloseModal}
+                                  center>
+                                  <div className='tafsier tafsier-ibnkther'>
+                                    <div className='tfs'>
+                                    kekljshfjvzfbvdfskjbvjskdfbvdkjanvfkjsavnoalkvnslin
+                                    </div>
+                                  </div>
+                                </Modal>
+                              </div>
+                              <div>
+                                <div
+                                  onClick={this.onOpenModal2}
+                                  className='al-qortoby'>
+                                القرطبي
+                                </div>
+                                <Modal
+                                  open={opentfs2}
+                                  onClose={this.onCloseModal2}
+                                  center>
+                                  <div className='tafsier tafsier-qortoby'>
+                                    <div className='tfs'></div>
+                                  </div>
+                                </Modal>
+                              </div>
+                              <div>
+                                <div
+                                  onClick={this.onOpenModal3}
+                                  open={opentfs3}
+                                  className='al-saadi'>
+                                السعدي
+                                </div>
+                                <Modal
+                                  open={opentfs3}
+                                  onClose={this.onCloseModal3} center>
+                                  <div className='tafsier tafsier-saadi'>
+                                    <div className='tfs'></div>
+                                  </div>
+                                </Modal>
+                              </div>
+                            </div>
+                          </Popover>
                         </div>
                       </div>
                     </Popover>
-                  </p>
-                  <div>
-                    <div className='inner'>
-                      <div className='copy'>
-                        <i className='far fa-copy'></i>
-                      نسخ
-                      </div>
-                      <div className='share'>
-                        <i className='fas fa-share-alt'></i>
-                      مشاركة
-                      </div>
-                      <div className='const'>
-                        <div className='tran'>
-                          <i className='fas fa-clipboard-list'></i>
-                          التفسير
-                        </div>
-                        <div className='readers'>
-                          <div className='ibn-katheer'>ابن كثير</div>
-                          <div className='al-qortoby'>القرطبي</div>
-                          <div className='al-saadi'>السعدي</div>
-                        </div>
-                        <div className='tafsier tafsier-ibnkther'>
-                          <i className='fas fa-times'></i>
-                          <div className='tfs'>كَلَّآۖ إِذَا دُكَّتِ ٱلۡأَرۡضُ دَكّٗا دَكّٗا ١٢
-
-                          يخبر تعالى عما يقع يوم القيامة من الأهوال العظيمة فقال تعالى كلا أي حقاإذا دكت الأرض دكا دكا أي وطئت ومهدت وسويت الجبال وقام الخلائق من قبورهم لربه.
-                          </div>
-                        </div>
-                        <div className='tafsier tafsier-qortoby'>
-                          <i className='fas fa-times'></i>
-                          <div className='tfs'>كَلَّآۖ إِذَا دُكَّتِ ٱلۡأَرۡضُ دَكّٗا دَكّٗا ١٢
-
-                          قوله تعالى : كلا إذا دكت الأرض دكا دكا قوله تعالى : كلا أي ما هكذا ينبغي أن يكون الأمر . فهو رد لانكبابهم على الدنيا ، وجمعهم لها فإن من فعل ذلك يندم يوم تدك الأرض ، ولا ينفع الندم . والدك : الكسر والدق وقد تقدم . أي زلزلت الأرض ، وحركت تحريكا بعد تحريك . وقال الزجاج : أي زلزلت فدك بعضها بعضا . وقال المبرد : أي ألصقت وذهب ارتفاعها . يقال ناقة دكاء ، أي لا سنام لها ، والجمع دك . وقد مضى في سورة ( الأعراف ) و ( الحاقة ) القول في هذا . ويقولون : دك الشيء أي هدم . قال :
-    هل غير غار دك غارا فانهدم
-    قوله تعالى : دكا دكا أي مرة بعد مرة زلزلت فكسر بعضها بعضا فتكسر كل شيء على ظهرها . وقيل : دكت جبالها وأنشازها حتى استوت . وقيل : دكت أي استوت في الانفراش فذهب دورها وقصورها وجبالها وسائر أبنيتها . ومنه سمي الدكان ، لاستوائه في الانفراش . والدك : حط المرتفع من الأرض بالبسيط ، وهو معنى قول ابن مسعود وابن عباس : تمد الأرض مد الأديم .
-                          </div>
-                        </div>
-                        <div className='tafsier tafsier-saadi'>
-                          <i className='fas fa-times'></i>
-                          <div className='tfs'>كَلَّآۖ إِذَا دُكَّتِ ٱلۡأَرۡضُ دَكّٗا دَكّٗا ١٢
-
-                          </div>
-                        </div>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </div>
