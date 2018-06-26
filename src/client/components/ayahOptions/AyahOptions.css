@@ -9,23 +9,22 @@
   align-items: center
 }
 
+.popup {
+  ont-family: 'KFGQPCUthmanicScriptHAFS', serif !important;
+  background-color: #f9f9f9;
+  color: #505050;
+  height: auto;
+  border-radius: 2px;
+  padding: 0px;
+  font-size: 15px;
+  text-align: right;
+  margin: auto;
+}
+
 .center {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.buttons{
-  margin: 20px 10px 20px 10px;
-  display: block;
-  text-align: center;
-  font-weight: 500;
-  padding: 12px 20px 12px 20px;
-}
-
-.buttons.flat-three-d.turquoise{
-     border: 0;
-     border-bottom: 4px solid #12ab8d;
 }
 
 .sourh .speech-container {
@@ -87,7 +86,6 @@
   width: 160px;
   height: auto;
   position: absolute;
-  display: none;
   top: 45px;
   right: 115px;
   z-index: 99;
@@ -227,19 +225,22 @@
   }
 }
 
-.name { line-height: 40px }
-.p-end {
-    padding: 0 60px;
-    line-height: 2;
-    font-size: 23px;
-    font-weight: normal;
-  }
+.name {
+  line-height: 40px
+}
 
-    .bg-sour {
-      display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    }
+.p-end {
+  padding: 0 60px;
+  line-height: 2;
+  font-size: 23px;
+  font-weight: normal;
+}
+
+.bg-sour {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 
 @media (min-width: 576px) and (max-width: 767.98px) {
   .name-sourh {
