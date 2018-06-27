@@ -21,8 +21,6 @@
   margin-left: 0px;
   margin-top: 0px;
   padding: 0px;
-  overflow-x: hidden;
-  overflow-y: scroll;
   border-left: solid 1px #B4B4B4;
   border-right: solid 1px #B4B4B4
 }
@@ -69,6 +67,7 @@
 
 .dropdown, .dropdown .const .readers {
   font-family: 'KFGQPCUthmanicScriptHAFS', serif !important;
+  font-family: 'KFGQPCUthmanicScriptHAFS', serif;
   background-color: #f9f9f9;
   color: #505050;
   width: 160px;
@@ -154,6 +153,10 @@
   margin: 0 !important;
 }
 
+.fonting {
+  font-family: 'KFGQPCUthmanicScriptHAFS', serif;
+}
+
 .dropdown .tafsier .tfs {
   width: 85%;
   height: 80%;
@@ -161,8 +164,6 @@
   background-color: #f9f9f9;
   border-radius: 2px;
   border: 1px solid #03a678;
-  overflow-x: hidden;
-  overflow-y: scroll;
   padding: 35px !important;
   font-size: 19px;
   line-height: 35px !important;
@@ -214,19 +215,22 @@
   }
 }
 
-.name { line-height: 40px }
-.p-end {
-    padding: 0 60px;
-    line-height: 2;
-    font-size: 23px;
-    font-weight: normal;
-  }
+.name {
+  line-height: 40px
+}
 
-    .bg-sour {
-      display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    }
+.p-end {
+  padding: 0 60px;
+  line-height: 2;
+  font-size: 23px;
+  font-weight: normal;
+}
+
+.bg-sour {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 
 @media (min-width: 576px) and (max-width: 767.98px) {
   .name-sourh {

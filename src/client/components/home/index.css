@@ -118,7 +118,6 @@
 .card-image {
   height: 230px;
   position: relative;
-  overflow: hidden;
 }
 
 .card-image img {
@@ -252,7 +251,6 @@
   .card-image {
     height: 180px;
     position: relative;
-    overflow: hidden;
   }
   .card-body {
     height: 137px;

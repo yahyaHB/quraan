@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import NavBarHome from '../navBarHome/NavBarHome.js';
 
 import './index.css';
@@ -14,8 +15,8 @@ class Home extends Component {
               <div className='home__subContainer'>
                 <img className='image_bg' src='./assets/bgt.png' />
                 <div className='card-container'>
-                  <div className='card'>
-                    <a href='#'>
+                  <Link to={'/read-mode'}>
+                    <div className='card'>
                       <div className='card-image'>
                         <img src='http://www.loveo.cc/wp-content/uploads/2017/02/card-image.jpg'
                           alt='Orange' />
@@ -39,10 +40,10 @@ class Home extends Component {
                           </p>
                         </div>
                       </div>
-                    </a>
-                  </div>
-                  <div className='card'>
-                    <a href='#'>
+                    </div>
+                  </Link>
+                  <Link to={'/tafsiermood'}>
+                    <div className='card'>
                       <div className='card-image'>
                         <img src='http://www.loveo.cc/wp-content/uploads/2017/02/card-image.jpg'
                           alt='Orange' />
@@ -66,8 +67,8 @@ class Home extends Component {
                           </p>
                         </div>
                       </div>
-                    </a>
-                  </div>
+                    </div>
+                  </Link>
                 </div>
               </div>
             </div>

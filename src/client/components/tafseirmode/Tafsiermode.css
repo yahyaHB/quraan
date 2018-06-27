@@ -1,0 +1,23 @@
+@media (max-width: 575.98px) {}
+
+@media (min-width: 576px) and (max-width: 767.98px) {}
+
+@media (min-width: 768px) and (max-width: 991.98px) {}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {}
+
+.tfsMode {
+  display: flex;
+  flex-direction: row;
+  height: 93vh;
+}
+
+.tafseirSection {
+  display: flex;
+  flex: 1;
+}
+
+.contentSection {
+  display: flex;
+  flex: 1;
+}

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import ReactAwesomePopover from 'react-awesome-popover';
 import TafsirOptions from '../tafsirOptions/TafsirOptions.js';
@@ -11,27 +12,25 @@ const Popover = ReactAwesomePopover;
 class AyahOptions extends Component {
   state = {
     value: '',
-    copied: false
+    copied: false,
+    tfsMode: window.location.pathname
   }
 
-  copyTextToClipboard = text => {
+  copyTextToClipboard = () => {
     const textArea = document.createElement('textarea');
     textArea.value = this.state.value;
     document.body.appendChild(textArea);
     textArea.select();
     document.execCommand('copy');
     document.body.removeChild(textArea);
-    console.log(text);
   }
 
   render() {
-
     return (
       <div className='popup'>
         <div className='inner'>
-          <CopyToClipboard text={this.state.value}
+          <CopyToClipboard text={this.props.ayah}
             onCopy={() => {
-              console.log(this.state.value);
               this.setState({ copied: true });
             }}>
             <div onClick={
@@ -46,20 +45,30 @@ class AyahOptions extends Component {
             <i className='fas fa-share-alt'></i>
             مشاركة
           </div>
-          <Popover>
-            <div className='const'>
-              <div className='tran'>
-                <i className='fas fa-clipboard-list'></i>
-                التفسير
-              </div>
+          {this.state.tfsMode === '/tafsiermood' ?
+            <div>
             </div>
-            <TafsirOptions />
-          </Popover>
+            :
+            <Popover>
+              <div className='const'>
+                <div className='tran'>
+                  <i className='fas fa-clipboard-list'></i>
+            التفسير
+                </div>
+              </div>
+              <TafsirOptions tafseer={this.props.tafseer}/>
+            </Popover>
+          }
         </div>
       </div>
 
     );
   }
 }
+
+AyahOptions.propTypes = {
+  ayah: PropTypes.string,
+  tafseer: PropTypes.object
+};
 
 export default AyahOptions;
