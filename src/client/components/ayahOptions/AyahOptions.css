@@ -33,8 +33,6 @@
   margin-left: 0px;
   margin-top: 0px;
   padding: 0px;
-  overflow-x: hidden;
-  overflow-y: scroll;
   border-left: solid 1px #B4B4B4;
   border-right: solid 1px #B4B4B4
 }
@@ -172,8 +170,6 @@
   background-color: #f9f9f9;
   border-radius: 2px;
   border: 1px solid #03a678;
-  overflow-x: hidden;
-  overflow-y: scroll;
   padding: 35px !important;
   font-size: 19px;
   line-height: 35px !important;

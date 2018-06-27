@@ -1,0 +1,26 @@
+.tafsier-tfs-mode {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: default;
+}
+
+.tfs-tfs-mode {
+  width: 85%;
+  height: 80%;
+  color: #151515;
+  background-color: #f9f9f9;
+  border-radius: 2px;
+  border: 1px solid #03a678;
+  padding: 35px !important;
+  font-size: 19px;
+}
+
+.fonting-tfs-mode {
+  font-family: 'KFGQPCUthmanicScriptHAFS', serif;
+}
+
+ul {
+  list-style: none;
+}

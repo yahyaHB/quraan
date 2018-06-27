@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { RingLoader } from 'react-spinners';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import AyahOptions from '../ayahOptions/AyahOptions.js';
 import axios from 'axios';
@@ -16,28 +17,39 @@ class AyahComponent extends Component {
       ayahs: [],
       value: '',
       page: 293,
-      copied: false
+      copied: false,
+      loading: false,
+      flipped: false
     };
     this.fetchinngVerses=this.fetchinngVerses.bind(this);
     this.fetchinngVerses();
   }
 
-  copyTextToClipboard = text => {
+  mouseOut() {
+    console.log('Mouse out!!!', this.state.flipped);
+    this.setState({ flipped: false });
+  }
+
+  mouseOver() {
+    console.log('Mouse over!!!', this.state.flipped);
+    this.setState({ flipped: true });
+  }
+
+  copyTextToClipboard = () => {
     const textArea = document.createElement('textarea');
     textArea.value = this.state.value;
     document.body.appendChild(textArea);
     textArea.select();
     document.execCommand('copy');
     document.body.removeChild(textArea);
-    console.log(text);
   }
 
   fetchinngVerses = () => {
-    axios.get(`http://api.alquran.cloud/page/${this.state.page}/quran-uthmani`)
+    axios.get(`https://qurn.herokuapp.com/api/page/${this.state.page}?api_key=yahia@eslam`)
       .then(res => {
-        console.log(res.data.data);
         this.setState({
-          ayahs: res.data.data.ayahs.map(ay => ay.text)
+          ayahs: res.data.page.ayahs,
+          loading: false
         });
       });
   }
@@ -47,20 +59,29 @@ class AyahComponent extends Component {
 
     return (
       <div>
-        <ul>
+        <div className='loader'>
+          <RingLoader
+            color={'#03a678'}
+            loading={this.state.loading}
+          />
+        </div>
+        <ul className='ayahsFonting'>
           {
-            ayahs.map(i => {
-              return (<li key={i}>
+            ayahs.map((i,id) => {
+              return (<li key={id}>
                 <div className='div-aya'>
                   <CopyToClipboard text={this.state.value}
                     onCopy={() => {
-                      this.setState({ value: i });
+                      this.setState({ value: i.text });
                     }}>
                     <Popover>
                       <span onClick={
                         this.copyTextToClipboard()
-                      }>{i}</span>
-                      <AyahOptions />
+                      }
+                      >
+                        {i.originalText}
+                      </span>
+                      <AyahOptions ayah={i.text} tafseer={i.tafsier}/>
                     </Popover>
                   </CopyToClipboard>
                 </div>
@@ -69,7 +90,7 @@ class AyahComponent extends Component {
           }
         </ul>
         <a onClick={() => {
-          this.setState({ page: this.state.page + 1 },() => {
+          this.setState({ page: this.state.page + 1, loading: true },() => {
             this.fetchinngVerses();
           });
         }}

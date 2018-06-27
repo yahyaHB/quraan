@@ -1,27 +1,16 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 import Dialog from 'rc-dialog';
 
 import 'rc-dialog/assets/index.css';
 import './TafsirOptions.css';
 
-const fake = [
-  {
-    id: 1,
-    text: 'ابن كثير',
-    tafseer: 'fsdf sdfds fsdf'
-  },
-  {
-    id: 2,
-    text: 'القرطبي',
-    tafseer: 'fsdf sdfdsdcsdvas fsdf'
-  },
-  {
-    id: 3,
-    text: 'السعدي',
-    tafseer: 'fsdf sdfdasvdsaasdvdsavdds fsdf'
-  }
-];
-
+const namesTrans = {
+  ibnkther: 'ابن كثي',
+  qortoby: 'ss كثي',
+  saadi: ' كثي'
+};
 class TafsirOptions extends Component {
 
 state = {
@@ -30,6 +19,7 @@ state = {
   width: 600,
   destroyOnClose: true,
   center: true,
+  xBtn: false,
   shareUrl: window.location.href
 }
 onClick2 = e => {
@@ -51,6 +41,7 @@ opentafseer = item => {
 }
 
 render() {
+  const tafserKets = Object.keys(this.props.tafseer);
   const style = {
     width: this.state.width
   };
@@ -63,15 +54,12 @@ render() {
     <div className='readers'>
       <div>
         {
-          fake.map(item => {
-
-            return (
-              <div className='al-qortoby' key={item.id} onClick={() => {
-                this.opentafseer(item);
-                console.log(this.state.shareUrl);
-              }}>{item.text}</div>
-            );
-          })
+          tafserKets.map(item => (
+            <div className='al-qortoby' key={item} onClick={() => {
+              this.opentafseer(this.props.tafseer[item]);
+              console.log(this.state.shareUrl);
+            }}>{namesTrans[item]}</div>
+          ))
         }
       </div>
 
@@ -80,21 +68,23 @@ render() {
         wrapClassName={wrapClassName}
         animation='zoom'
         maskAnimation='fade'
+        closable={this.state.xBtn}
         style={style}
         mousePosition={this.state.mousePosition}
-        onClose={() => {
-          this.setState({ visible: false, sellectedItem: {} });
-        }}
+        onClose={this.onClose2}
       >
         <div className='tafsier tafsier-qortoby'>
-          <div className='tfs'>{this.state.sellectedItem.tafseer}</div>
+          <div className='tfs fonting'>{this.state.sellectedItem}</div>
         </div>
       </Dialog>
-
     </div>
 
   );
 }
 }
+
+TafsirOptions.propTypes = {
+  tafseer: PropTypes.array
+};
 
 export default TafsirOptions;
